@@ -1,31 +1,10 @@
 import Panel from "@/components/Panel";
 import { Story } from "@/types/story";
+import { getEarthquakes } from "@/lib/usgs";
 
-const activeStories: Story[] = [
-  {
-    id: "1",
-    title: "Texas Flooding",
-    category: "Weather",
-    priority: "High",
-    location: "Texas",
-  },
-  {
-    id: "2",
-    title: "Oklahoma Storms",
-    category: "Weather",
-    priority: "Medium",
-    location: "Oklahoma",
-  },
-  {
-    id: "3",
-    title: "NASA Launch",
-    category: "Space",
-    priority: "Low",
-    location: "Florida",
-  },
-];
+const activeStories = await getEarthquakes();
 
-export default function Home() {
+export default async function Home() {
   return (
     <main className="min-h-screen bg-gray-100 p-8">
       <div className="max-w-7xl mx-auto">
