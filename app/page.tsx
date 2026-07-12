@@ -42,27 +42,29 @@ export default async function Home() {
                   className="flex justify-between items-center border-b pb-3"
                 >
 
-                  <div>
-  <p className="font-medium">{story.title}</p>
+                  <div className="flex justify-between items-start w-full">
+  <div>
+    <p className="font-semibold">
+      M{story.magnitude.toFixed(1)} • {story.location}
+    </p>
 
-  <p className="text-sm text-gray-500">
-    {story.category} • {story.location}
-  </p>
+    <p className="text-sm text-gray-500">
+      {story.time}
+    </p>
+  </div>
+
+  <span
+    className={`text-xs px-2 py-1 rounded ${
+      story.priority === "High"
+        ? "bg-red-100 text-red-700"
+        : story.priority === "Medium"
+        ? "bg-yellow-100 text-yellow-700"
+        : "bg-green-100 text-green-700"
+    }`}
+  >
+    {story.priority}
+  </span>
 </div>
-
-                  <span
-                    className={`text-white text-sm font-semibold px-3 py-1 rounded-full
-                      ${
-                        story.priority === "High"
-                          ? "bg-red-600"
-                          : story.priority === "Medium"
-                          ? "bg-yellow-500"
-                          : "bg-green-600"
-                      }
-                    `}
-                  >
-                    {story.priority}
-                  </span>
 
                 </div>
 

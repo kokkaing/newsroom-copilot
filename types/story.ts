@@ -6,4 +6,8 @@ export type Story = {
   category: string;
   priority: Priority;
   location: string;
+
+  magnitude: number;
+  time: string;
+  url: string;
 };
